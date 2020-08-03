@@ -66,6 +66,32 @@ void desenhar_jogo_atual(int jogador_atual, char jogo[3][3])
     }
 }
 
+void jogar(int jogador_atual, char jogo[3][3])
+{
+    int pos_x, pos_y;
+
+    do
+    {
+        printf("POSIÇÃO HORIZONTAL --> ");
+        scanf("%d", &pos_x);
+        printf("POSIÇÃO VERTICAL   --> ");
+        scanf("%d", &pos_y);
+        if (jogo[pos_y - 1][pos_x - 1] != ' ')
+        {
+            printf("POSIÇÃO INVÁLIDA! - JOGUE EM UMA CASA VAZIA\n\n");
+        }
+    } while (jogo[pos_y - 1][pos_x - 1] != ' ');
+
+    if (jogador_atual == JOGADOR_X)
+    {
+        jogo[pos_y - 1][pos_x - 1] = 'X';
+    }
+    else
+    {
+        jogo[pos_y - 1][pos_x - 1] = 'O';
+    }
+}
+
 int verificar_status(int jogador_atual, char jogo[3][3])
 {
     // verifica e define qual é o jogador atual se é o X ou o O
@@ -103,11 +129,6 @@ int verificar_status(int jogador_atual, char jogo[3][3])
             return JOGO_STATUS_VENCEU_O;
         }
     }
-    // cai no else se jogador atual não ganhar nas diagonais
-    /*else
-    {*/
-    /*for (int i = 0; i < 3; i++)
-        {*/
     // verifica se algum jogador ganhou nas linhas horizontais
     else if (jogo[0][0] == jogador && jogo[0][1] == jogador && jogo[0][2] == jogador)
     {
@@ -192,8 +213,6 @@ int verificar_status(int jogador_atual, char jogo[3][3])
         }
         return JOGO_STATUS_VELHOU;
     }
-    //}
-    //}
 }
 
 int proximo_jogador(int jogador_atual)
@@ -206,32 +225,6 @@ int proximo_jogador(int jogador_atual)
     else
     {
         return 1;
-    }
-}
-
-void jogar(int jogador_atual, char jogo[3][3])
-{
-    int pos_x, pos_y;
-
-    do
-    {
-        printf("POSIÇÃO HORIZONTAL --> ");
-        scanf("%d", &pos_x);
-        printf("POSIÇÃO VERTICAL   --> ");
-        scanf("%d", &pos_y);
-        if (jogo[pos_y - 1][pos_x - 1] != ' ')
-        {
-            printf("POSIÇÃO INVÁLIDA! - JOGUE EM UMA CASA VAZIA\n\n");
-        }
-    } while (jogo[pos_y - 1][pos_x - 1] != ' ');
-
-    if (jogador_atual == JOGADOR_X)
-    {
-        jogo[pos_y - 1][pos_x - 1] = 'X';
-    }
-    else
-    {
-        jogo[pos_y - 1][pos_x - 1] = 'O';
     }
 }
 
