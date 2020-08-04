@@ -9,7 +9,10 @@
 #define JOGO_STATUS_VENCEU_O 5
 #define JOGO_STATUS_VELHOU 0
 
+#define COLOR_LIGHT_RED "\x1b[31;1m"
 #define COLOR_LIGHT_GREEN "\x1b[32;1m"
+#define COLOR_LIGHT_YELLOW "\x1b[33;1m"
+#define COLOR_LIGHT_WHITE "\x1b[37;1m"
 
 // matriz responsavel por guardar o jogo
 char jogo_da_velha[3][3];
@@ -288,9 +291,70 @@ int menu(void)
 void creditos(void)
 {
     system("clear");
-    printf("---------------------------------------\n");
-    printf("-------------JOGO-DA-VELHA-------------\n");
-    printf("---------------------------------------\n\n");
+
+    printf("------------------------------------------------------------------\n");
+    printf("--------------------------JOGO-DA-VELHA---------------------------\n");
+    printf("------------------------------------------------------------------\n\n");
+    printf(COLOR_LIGHT_RED);
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@///(@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@////////////#@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@/////////////////////@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@@@@@@@@@@@@@@@@@//////////////////////////////@@@@@@@@@@@@@@@@@@\n");
+    printf("@@@@@@@@@@@@@@///////////////////////////////////////@@@@@@@@@@@@@\n");
+    printf("@@@@@@@@@/////////////////*             /////////////////&@@@@@@@@\n");
+    printf("@@@@@////////////////                        .////////////////@@@@\n");
+    printf("@@////////////////                               //////////////##@\n");
+    printf("@//////////////.                                   *//////(######@\n");
+    printf("@////////////*                                       /###########@\n");
+    printf("@///////////               ////////////*          ###############@\n");
+    printf("@//////////             //////////////////.  ,###################@\n");
+    printf("@/////////,            //////////////////########################@\n");
+    printf("@/////////            //////////////(############################@\n");
+    printf("@/////////            //////////#################################@\n");
+    printf("@/////////            //////#####################################@\n");
+    printf("@/////////*            (#########################################@\n");
+    printf("@//////////             ,#################    ,##################@\n");
+    printf("@///////////               ,###########            (#############@\n");
+    printf("@/////////####                                       ############@\n");
+    printf("@/////#########/                                   ##############@\n");
+    printf("@@################                              .###############@@\n");
+    printf("@@@@@&###############/                       ################@@@@@\n");
+    printf("@@@@@@@@@@#################/          .##################@@@@@@@@@\n");
+    printf("@@@@@@@@@@@@@@######################################@@@@@@@@@@@@@@\n");
+    printf("@@@@@@@@@@@@@@@@@@@#############################@@@@@@@@@@@@@@@@@@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@####################@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@###########@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n\n");
+
+    printf("      __   ___  __   ___            __               __   __      \n");
+    printf("     |  \\ |__  /__` |__  |\\ | \\  / /  \\ |    \\  / | |  \\ /  \\     \n");
+    printf("     |__/ |___ .__/ |___ | \\|  \\/  \\__/ |___  \\/  | |__/ \\__/     \n");
+    printf("                                                                  \n");
+    printf("                         __   __   __                             \n");
+    printf("                        |__) /  \\ |__)                            \n");
+    printf("                        |    \\__/ |  \\                            \n\n");
+    printf(COLOR_LIGHT_YELLOW);
+    printf("      dMP dMP dMP dMP dMP     dMP     dMP .aMMMb  dMMMMMMMMb      \n");
+    printf("     dMP dMP dMP amr dMP     dMP     amr dMP'dMP dMP'dMP'dMP      \n");
+    printf("    dMP dMP dMP dMP dMP     dMP     dMP dMMMMMP dMP dMP dMP       \n");
+    printf("   dMP.dMP.dMP dMP dMP     dMP     dMP dMP dMP dMP dMP dMP        \n");
+    printf("   VMMMPVMMP' dMP dMMMMMP dMMMMMP dMP dMP dMP dMP dMP dMP         \n");
+    printf("                                                                  \n");
+    printf("          .dMMMb  .aMMMb  dMMMMMMMMb dMMMMb  .aMMMb  dMP .aMMMb   \n");
+    printf("         dMP' VP dMP'dMP dMP'dMP'dMPdMP.dMP dMP'dMP amr dMP'dMP   \n");
+    printf("         VMMMb  dMMMMMP dMP dMP dMPdMMMMP' dMMMMMP dMP dMP dMP    \n");
+    printf("       dP .dMP dMP dMP dMP dMP dMPdMP     dMP dMP dMP dMP.aMP     \n");
+    printf("       VMMMP  dMP dMP dMP dMP dMPdMP     dMP dMP dMP  VMMMP'      \n\n\n");
+    printf(COLOR_LIGHT_WHITE);
+    printf("           - GITHUB: https://github.com/WilliamSampaio/           \n\n");
+
+    printf(COLOR_LIGHT_GREEN);
+    printf("PRESSIONE QUALQUER TECLA PARA VOLTAR...\n");
+
+    main();
 }
 
 // função principal
