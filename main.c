@@ -33,6 +33,7 @@ int proximo_jogador(int jogador_atual);
 int escolher_time(void);
 int menu(void);
 void exibir_creditos(void);
+void exibir_como_jogar(void);
 
 // função principal
 int main(void)
@@ -90,7 +91,8 @@ int main(void)
         } while (1);
         break;
     case 2:
-        // em breve
+        // como jogar
+        exibir_como_jogar();
         break;
     case 3:
         // creditos
@@ -144,7 +146,7 @@ void desenhar_jogo_atual(int jogador_atual, char jogo[3][3])
 
     if (jogador_atual == 1)
     {
-        printf("\n%s -->[ JOGADOR X ]<-- %s[JOGADOR O]\n\n",COLOR_LIGHT_RED, COLOR_LIGHT_GREEN);
+        printf("\n%s -->[ JOGADOR X ]<-- %s[JOGADOR O]\n\n", COLOR_LIGHT_RED, COLOR_LIGHT_GREEN);
     }
     else
     {
@@ -434,6 +436,40 @@ void exibir_creditos(void)
 
     printf(COLOR_LIGHT_GREEN);
     printf("PRESSIONE QUALQUER TECLA PARA VOLTAR...\n");
+
+    main();
+}
+
+void exibir_como_jogar(void)
+{
+    system("clear");
+
+    printf("------------------------------------------------------------------\n");
+    printf("--------------------COMO JOGAR::JOGO-DA-VELHA---------------------\n");
+    printf("------------------------------------------------------------------\n\n");
+
+    printf("1. No  MENU PRINCIPAL digite o numero  da opção  desejada e pres-\n");
+    printf("sione ENTER.\n");
+    printf("Ex.: [1] - PRIMEIRA OPÇÃO\n\t--> 1\n\n");
+
+    printf("Todo o jogo funciona dessa forma, você digita o numero correspon-\n");
+    printf("dente a opção desejada.\n\n");
+
+    printf("2. Após iniciar novo jogo, é preciso escolher entre iniciar com X\n");
+    printf("ou com O. Basta digitar a opção e pressionar ENTER.\n\n");
+
+    printf("3. Uma vez dentro  do jogo é exibido na tela o jogo atual com ne-\n");
+    printf("nhuma casa preenchida. Logo abaixo é pedido a coordenada horizon-\n");
+    printf("tal e em seguida a coordenada vertical.\n");
+    printf("Ex.: A posição %shorizontal 1%s e %svertical 2%s, preencherá o jogo dessa\n", COLOR_LIGHT_RED, COLOR_LIGHT_GREEN, COLOR_LIGHT_RED, COLOR_LIGHT_GREEN);
+    printf("     forma %s(caso o jogador seja o X)%s:\n", COLOR_LIGHT_RED, COLOR_LIGHT_GREEN);
+    printf("\t      %s1%s  2  3 \n", COLOR_LIGHT_RED, COLOR_LIGHT_GREEN);
+    printf("\t      v  v  v \n");
+    printf("\t 1 > [ ][ ][ ]\n");
+    printf("\t %s2%s > [%sX%s][ ][ ]\n", COLOR_LIGHT_RED, COLOR_LIGHT_GREEN, COLOR_LIGHT_RED, COLOR_LIGHT_GREEN);
+    printf("\t 3 > [ ][ ][ ]\n\n");
+
+    printf("4. Divirta-se!\n\n");
 
     main();
 }
