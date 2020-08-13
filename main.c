@@ -63,11 +63,11 @@ void desenhar_jogo_atual(int jogador_atual, char jogo[3][3])
 
     if (jogador_atual == 1)
     {
-        printf("\n -->[ JOGADOR X ]<-- [JOGADOR O]\n\n");
+        printf("\n%s -->[ JOGADOR X ]<-- %s[JOGADOR O]\n\n",COLOR_LIGHT_RED, COLOR_LIGHT_GREEN);
     }
     else
     {
-        printf("\n [JOGADOR X] -->[ JOGADOR O ]<--\n\n");
+        printf("\n [JOGADOR X] %s-->[ JOGADOR O ]<--%s\n\n", COLOR_LIGHT_RED, COLOR_LIGHT_GREEN);
     }
 }
 
@@ -393,14 +393,14 @@ int main(void)
             else if (status_do_jogo == JOGO_STATUS_VENCEU_X)
             {
                 desenhar_jogo_atual(jogador_atual, jogo_da_velha);
-                printf("\nJOGADOR X VENCEU!!\n\n");
+                printf("\n%sJOGADOR X VENCEU!!%s\n\n", COLOR_LIGHT_YELLOW, COLOR_LIGHT_GREEN);
                 main();
             }
             // caso o jogador O vença
             else if (status_do_jogo == JOGO_STATUS_VENCEU_O)
             {
                 desenhar_jogo_atual(jogador_atual, jogo_da_velha);
-                printf("\nJOGADOR O VENCEU!!\n\n");
+                printf("\n%sJOGADOR O VENCEU!!%s\n\n", COLOR_LIGHT_YELLOW, COLOR_LIGHT_GREEN);
                 main();
             }
             // caso não a mais jogadas disponiveis e ninguem venceu
