@@ -24,6 +24,16 @@ char jogo_da_velha[3][3];
 int jogador_atual;
 int status_do_jogo;
 
+//prototipos das funções
+void iniciar_novo_jogo(char jogo[3][3]);
+void desenhar_jogo_atual(int jogador_atual, char jogo[3][3]);
+void jogar(int jogador_atual, char jogo[3][3]);
+int verificar_status(int jogador_atual, char jogo[3][3]);
+int proximo_jogador(int jogador_atual);
+int escolher_time(void);
+int menu(void);
+void creditos(void);
+
 // função principal
 int main(void)
 {
