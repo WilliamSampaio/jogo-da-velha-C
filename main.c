@@ -24,6 +24,77 @@ char jogo_da_velha[3][3];
 int jogador_atual;
 int status_do_jogo;
 
+// função principal
+int main(void)
+{
+    // define o cor dos caracteres
+    printf(COLOR_LIGHT_GREEN);
+
+    // trata a opção inserida pelo usuario
+    switch (menu())
+    {
+    case 1:
+        // inicia novo jogo
+        iniciar_novo_jogo(jogo_da_velha);
+        // escolher começar começar com X ou O
+        jogador_atual = escolher_time();
+        // desenha jogo atual
+        desenhar_jogo_atual(jogador_atual, jogo_da_velha);
+
+        // loop principal do jogo, equanto alguem não vencer ou velhar
+        do
+        {
+            // jogador atual joga
+            jogar(jogador_atual, jogo_da_velha);
+
+            // verifica status do jogo, se o ultimo jogador a jogar venceu ou não ou se ainda ha jogadas disponiveis
+            status_do_jogo = verificar_status(jogador_atual, jogo_da_velha);
+
+            // continua o jogo apos verificar que ainda ha jogadas disponiveis
+            if (status_do_jogo == JOGO_STATUS_CONTINUA)
+            {
+                jogador_atual = proximo_jogador(jogador_atual);
+                desenhar_jogo_atual(jogador_atual, jogo_da_velha);
+            }
+            // caso o jogador X vença
+            else if (status_do_jogo == JOGO_STATUS_VENCEU_X)
+            {
+                desenhar_jogo_atual(jogador_atual, jogo_da_velha);
+                printf("\n%sJOGADOR X VENCEU!!%s\n\n", COLOR_LIGHT_YELLOW, COLOR_LIGHT_GREEN);
+                main();
+            }
+            // caso o jogador O vença
+            else if (status_do_jogo == JOGO_STATUS_VENCEU_O)
+            {
+                desenhar_jogo_atual(jogador_atual, jogo_da_velha);
+                printf("\n%sJOGADOR O VENCEU!!%s\n\n", COLOR_LIGHT_YELLOW, COLOR_LIGHT_GREEN);
+                main();
+            }
+            // caso não a mais jogadas disponiveis e ninguem venceu
+            else if (status_do_jogo == JOGO_STATUS_VELHOU)
+            {
+                desenhar_jogo_atual(jogador_atual, jogo_da_velha);
+                printf("\nJOGO VELHOU!!\n\n");
+                main();
+            }
+        } while (1);
+        break;
+    case 2:
+        // em breve
+        break;
+    case 3:
+        // creditos
+        creditos();
+        break;
+    case 4:
+        // sair
+        exit(1);
+        break;
+    default:
+        break;
+    }
+}
+
 // inicia a matriz com ' ' (espaços vazios)
 void iniciar_novo_jogo(char jogo[3][3])
 {
@@ -355,75 +426,4 @@ void creditos(void)
     printf("PRESSIONE QUALQUER TECLA PARA VOLTAR...\n");
 
     main();
-}
-
-// função principal
-int main(void)
-{
-    // define o cor dos caracteres
-    printf(COLOR_LIGHT_GREEN);
-
-    // trata a opção inserida pelo usuario
-    switch (menu())
-    {
-    case 1:
-        // inicia novo jogo
-        iniciar_novo_jogo(jogo_da_velha);
-        // escolher começar começar com X ou O
-        jogador_atual = escolher_time();
-        // desenha jogo atual
-        desenhar_jogo_atual(jogador_atual, jogo_da_velha);
-
-        // loop principal do jogo, equanto alguem não vencer ou velhar
-        do
-        {
-            // jogador atual joga
-            jogar(jogador_atual, jogo_da_velha);
-
-            // verifica status do jogo, se o ultimo jogador a jogar venceu ou não ou se ainda ha jogadas disponiveis
-            status_do_jogo = verificar_status(jogador_atual, jogo_da_velha);
-
-            // continua o jogo apos verificar que ainda ha jogadas disponiveis
-            if (status_do_jogo == JOGO_STATUS_CONTINUA)
-            {
-                jogador_atual = proximo_jogador(jogador_atual);
-                desenhar_jogo_atual(jogador_atual, jogo_da_velha);
-            }
-            // caso o jogador X vença
-            else if (status_do_jogo == JOGO_STATUS_VENCEU_X)
-            {
-                desenhar_jogo_atual(jogador_atual, jogo_da_velha);
-                printf("\n%sJOGADOR X VENCEU!!%s\n\n", COLOR_LIGHT_YELLOW, COLOR_LIGHT_GREEN);
-                main();
-            }
-            // caso o jogador O vença
-            else if (status_do_jogo == JOGO_STATUS_VENCEU_O)
-            {
-                desenhar_jogo_atual(jogador_atual, jogo_da_velha);
-                printf("\n%sJOGADOR O VENCEU!!%s\n\n", COLOR_LIGHT_YELLOW, COLOR_LIGHT_GREEN);
-                main();
-            }
-            // caso não a mais jogadas disponiveis e ninguem venceu
-            else if (status_do_jogo == JOGO_STATUS_VELHOU)
-            {
-                desenhar_jogo_atual(jogador_atual, jogo_da_velha);
-                printf("\nJOGO VELHOU!!\n\n");
-                main();
-            }
-        } while (1);
-        break;
-    case 2:
-        // em breve
-        break;
-    case 3:
-        // creditos
-        creditos();
-        break;
-    case 4:
-        // sair
-        exit(1);
-        break;
-    default:
-        break;
-    }
 }
