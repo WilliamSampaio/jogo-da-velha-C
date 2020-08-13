@@ -432,7 +432,7 @@ void exibir_creditos(void)
     printf("       dP .dMP dMP dMP dMP dMP dMPdMP     dMP dMP dMP dMP.aMP     \n");
     printf("       VMMMP  dMP dMP dMP dMP dMPdMP     dMP dMP dMP  VMMMP'      \n\n\n");
     printf(COLOR_LIGHT_WHITE);
-    printf("           - GITHUB: https://github.com/WilliamSampaio/           \n\n");
+    printf("            GITHUB: https://github.com/WilliamSampaio/            \n\n");
 
     printf(COLOR_LIGHT_GREEN);
     printf("PRESSIONE QUALQUER TECLA PARA VOLTAR...\n");
