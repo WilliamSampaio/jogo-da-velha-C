@@ -32,7 +32,7 @@ int verificar_status(int jogador_atual, char jogo[3][3]);
 int proximo_jogador(int jogador_atual);
 int escolher_time(void);
 int menu(void);
-void creditos(void);
+void exibir_creditos(void);
 
 // função principal
 int main(void)
@@ -94,7 +94,7 @@ int main(void)
         break;
     case 3:
         // creditos
-        creditos();
+        exibir_creditos();
         break;
     case 4:
         // sair
@@ -369,7 +369,7 @@ int menu(void)
 }
 
 // imprime os creditos
-void creditos(void)
+void exibir_creditos(void)
 {
     system("clear");
 
